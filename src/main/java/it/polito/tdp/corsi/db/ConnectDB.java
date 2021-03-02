@@ -7,6 +7,7 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 public class ConnectDB {
+
 	private static final String jdbcURL = "jdbc:mysql://localhost/iscritticorsi";
 	private static HikariDataSource ds;
 	
@@ -15,10 +16,10 @@ public class ConnectDB {
 			HikariConfig config = new HikariConfig();
 			config.setJdbcUrl(jdbcURL);
 			config.setUsername("root");
-			config.setPassword("rootroot");
+			config.setPassword("andreap99");
 			
 			config.addDataSourceProperty("cachePrepStmts", true);
-			config.addDataSourceProperty("prepStmtChacheSize", 250);
+			config.addDataSourceProperty("prepStmtChaceSize", 250);
 			config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
 			
 			ds = new HikariDataSource(config);
@@ -27,9 +28,9 @@ public class ConnectDB {
 		try {
 			return ds.getConnection();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			System.err.println("Errore di connessione ad db");
+			System.err.println("Errore di connessione al db");
 			throw new RuntimeException(e);
 		}
 	}
+	
 }
